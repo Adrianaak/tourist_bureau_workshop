@@ -102,5 +102,80 @@ let activities = [
 ];
 
 window.onload = function(){
+    initDropdown();
+
+    //grab our button off the page
+    let theForm = document.querySelector("#activityForm");
+
+    //when our button is clicked call displayFootballTeam
+    theForm.addEventListener("submit", displayActivity);
+
+}
+
+function displayActivity(event) {
+    // Prevent the form from reloading the page
+    event.preventDefault();
+
+    // Get the dropdown from the page
+    let theDropdown = document.querySelector("#activitySelect");
+    // Get the paragraph where the results will be displayed
+    let resultsParagraph = document.querySelector("#activityDetails");
+
+    // Get the index of the selected option in the dropdown
+    let selectedIndex = theDropdown.selectedIndex - 1;
+
+    if (theDropdown.value === "") {
+        // Clear the results paragraph if no activity is selected
+        resultsParagraph.innerHTML = "";
+    } else {
+        // Retrieve the selected activity based on the index
+        let selectedActivity = activities[selectedIndex];
+
+        // Check if the activity is found
+        if (selectedActivity) {
+            // Display the details of the selected activity
+            resultsParagraph.innerHTML = `You selected the ${selectedActivity.name} (${selectedActivity.id}) that costs $${selectedActivity.price}`;
+        } else {
+            // Clear the results paragraph if the activity is not found
+            resultsParagraph.innerHTML = "";
+        }
+    }
+}
+function initDropdown() {
+
+    //get the dropdown from the HTML document
+    let theDropdown = document.querySelector("#activitySelect");
+
+    //create an HTML option element to serve as the default option
+    let defaultOption = document.createElement("option");
+
+    //set the textContent of the option to 
+    defaultOption.textContent = "Select a Activity"
+
+    defaultOption.value = "";
+
+theDropdown.appendChild(defaultOption)
+    //
+    let numberOfActivities = activities.length;
+
+    //lets start looping over the teams
+    for (let i = 0; i < numberOfActivities; i++) {
+
+
+        //lets create a new option
+        let newOption = document.createElement("option");
+
+        //set the textContent for our new option, what the user sees
+        newOption.textContent = activities[i].name
+
+        //set the value 
+        newOption.value = activities[i].id
+
+        //add this option to the
+        theDropdown.appendChild(newOption)
+
+
+    }
+
 
 }
