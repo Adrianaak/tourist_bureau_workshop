@@ -1,0 +1,41 @@
+/* Navbar Style */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: white;
+}
+
+.navbar-nav .nav-link {
+    color: white;
+}
+
+/* Welcome Heading Style */
+.welcome-heading {
+    font-size: 3rem;
+    margin-top: 50px;
+}
+
+/* Card Style */
+.card {
+    background-color: rgba(31, 79, 2, 0.8);
+    color: white;
+}
+
+.card-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
+
+
+
+/* Carousel Style */
+.carousel-item img {
+    height: 300px; /* Adjust the height as needed */
+    object-fit: cover;
+}
+
